@@ -1,4 +1,4 @@
-# 📈 AI Stock Analyzer
+#  AI Stock Analyzer
 
 An AI-powered stock analysis tool that provides detailed buy/hold/sell recommendations and personalized stock discovery using the Anthropic Claude API and Yahoo Finance data.
 
