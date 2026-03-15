@@ -1,4 +1,4 @@
-#  AI Stock Analyzer
+# AI Stock Analyzer
 
 An AI-powered stock analysis tool that provides detailed buy/hold/sell recommendations and personalized stock discovery using the Anthropic Claude API and Yahoo Finance data.
 
@@ -103,6 +103,10 @@ Describe what you're looking for in plain English. Claude suggests candidate tic
 - **[Anthropic Claude API](https://www.anthropic.com)** — AI analysis and ticker recommendations
 - **[yfinance](https://github.com/ranaroussi/yfinance)** — Yahoo Finance data
 - **[python-dotenv](https://github.com/theskumar/python-dotenv)** — environment variable management
+
+## Development Notes
+
+Product design, API pipeline architecture, and prompt engineering by the author. Code structure and formatting built with AI assistance. The recommendation validation loop (silently replacing failed tickers until 5 valid results are found) was a specific design decision to improve UX over showing raw error messages.
 
 ## Notes
 
