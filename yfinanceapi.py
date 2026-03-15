@@ -4,6 +4,7 @@ import yfinance as yf
 import anthropic
 import json
 import logging
+# yfinance logs a lot of noise by default so this silences it so only real errors show
 logging.getLogger("yfinance").setLevel(logging.CRITICAL)
 
 load_dotenv()
@@ -16,8 +17,10 @@ def get_stock_data(ticker):
         stock = yf.Ticker(ticker)
         info = stock.info
         hist = stock.history(period="3mo")
+         # 3 months feels like a good window of time to get enough data without driving up the cost too much
 
         price = info.get("currentPrice") or info.get("regularMarketPrice") or info.get("navPrice")
+        # ETFs don't have currentPrice, they use regularMarketPrice or navPrice instead so checking all 3 to grab the price
         if hist.empty or not price:
             return None
 
@@ -136,7 +139,8 @@ def recommendation_mode():
     valid_stocks = []
     tried_tickers = set(tickers)
     queue = list(tickers)
-    max_attempts = 15  # cap total tickers tried to avoid infinite loop
+    max_attempts = 15
+    # Without a cap this could loop forever if Claude keeps suggesting bad tickers
 
     while queue and len(valid_stocks) < 5 and len(tried_tickers) <= max_attempts:
         ticker = queue.pop(0)
