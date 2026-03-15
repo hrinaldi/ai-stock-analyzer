@@ -68,7 +68,7 @@ cd ai-stock-analyzer
 
 ### 2. Install dependencies
 ```bash
-pip install anthropic yfinance python-dotenv
+pip install -r requirements.txt
 ```
 
 ### 3. Create a `.env` file
