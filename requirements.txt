@@ -1,0 +1,5 @@
+anthropic
+yfinance
+python-dotenv
+flask
+flask-cors
